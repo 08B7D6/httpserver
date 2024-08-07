@@ -1,10 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/socket.h>
 
 int create_socket(){
 	int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd == -1){
-			perror("webserver (socket)");
+			perror("Unable to create socket");
+			exit(1);
 			}
 	return sockfd;
 }
@@ -15,6 +17,6 @@ int main(){
 		return 1;
 	}
 
-	printf("Socket Created");
+	printf("Socket created");
 	return 0;
 }
